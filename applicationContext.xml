@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean for Employee with constructor dependency injection -->
+    <bean id="employee" class="com.klef.jfsd.exam.Employee">
+        <constructor-arg value="101" />
+        <constructor-arg value="John Doe" />
+        <constructor-arg value="75000.00" />
+        <constructor-arg value="IT" />
+        <constructor-arg>
+            <list>
+                <value>Java</value>
+                <value>Spring</value>
+                <value>SQL</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Bean for Instructor -->
+    <bean id="instructor" class="com.klef.jfsd.exam.Instructor">
+        <property name="instructorId" value="201" />
+        <property name="name" value="Dr. Smith" />
+        <property name="email" value="smith@example.com" />
+        <property name="phoneNumber" value="9876543210" />
+    </bean>
+
+    <!-- Bean for Course with setter-based Autowiring -->
+    <bean id="course" class="com.klef.jfsd.exam.Course" autowire="byName">
+        <property name="courseId" value="501" />
+        <property name="courseName" value="Advanced Java" />
+        <property name="credits" value="3" />
+    </bean>
+</beans>
